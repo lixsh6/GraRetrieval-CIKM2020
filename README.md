@@ -20,7 +20,7 @@ Besides, constructing the training-specific graph data in both models are differ
 
 ## Baselines
 
-The baseline code is released through our `PyTorch` implement. 
+The baseline code is released through our `PyTorch` implementation. 
 
 1. `VPCG` is " [**Learning Query and Document Relevance from a Web-scale Click Graph**](http://www.yichang-cs.com/yahoo/SIGIR16_clickgraph.pdf) " (SIGIR 2016)
 2. `GEPS` is "[**Neural IR Meets Graph Embedding: A Ranking Model for Product Search**](https://arxiv.org/pdf/1901.08286.pdf)" (WWW 2019)
