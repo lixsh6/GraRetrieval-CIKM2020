@@ -18,12 +18,19 @@ Besides, constructing the training-specific graph data in both models are differ
 * **EmbRanker**: run `path_generator.py` based on pkl graph data to get positive and negative samples.
 * **AggRanker**: run `./data/neighbor_generator.py` based on pkl graph data to get neighbors of each center nodes. 
 
+## Baselines
+
+The baseline code is released through our `PyTorch` implement. 
+
+1. `VPCG` is " [**Learning Query and Document Relevance from a Web-scale Click Graph**](http://www.yichang-cs.com/yahoo/SIGIR16_clickgraph.pdf) " (SIGIR 2016)
+2. `GEPS` is "[**Neural IR Meets Graph Embedding: A Ranking Model for Product Search**](https://arxiv.org/pdf/1901.08286.pdf)" (WWW 2019)
 
 ## Procedure
+
 1. All the settings are in `config.py`.
 2. run `python main.py --prototype train_config -e ACRI --gpu 0`
 
 ----------------
- 
+
 If you have any problems, please contact me via `lixsh6@gmail.com`.
 
