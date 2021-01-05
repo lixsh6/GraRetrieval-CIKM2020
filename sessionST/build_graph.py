@@ -89,6 +89,24 @@ class GraphBuilder():
 
         return query_click_G
 
+    def read_click_docs(self,filename):
+        qc_edge_list = []
+        for i,line in enumerate(open(filename)):
+            elements = line.strip().split('\t')
+            if i > 0 and elements[5] > 0.5: #skip first line and choose doc with click prob > 70% in the whole set
+                qc_edge_list.append((elements[0],elements[1])) #(qid,did)
+                qid = elements[0]
+                did = elements[1]
+                query = elements[2]
+                title = elements[3]
+            if i > 0:
+                if qid not in self.qid2text_dict:
+                    self.qid2text_dict[qid] = query
+                if did not in self.did2text_dict:
+                    self.did2text_dict[did] = title
+
+        return qc_edge_list
+
 
     def id2text(self,pair_id):
         return self.qid2text_dict[pair_id] if pair_id[0] == 'q' else self.did2text_dict[pair_id]
