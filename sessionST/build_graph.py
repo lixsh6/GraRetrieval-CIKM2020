@@ -12,7 +12,7 @@ def toqid(fname):
 
 class GraphBuilder():
     def __init__(self,config):
-        self.session_file = config['train_addr']
+        #self.session_file = config['train_addr']
         self.path_length = config['path_length']
         self.graph_addr = config['graph_addr']
         self.query_dict_addr = config['query_dict']
@@ -43,9 +43,9 @@ class GraphBuilder():
         degrees = [val for (node, val) in self.G.degree() if node[0] == 'q']
         return np.mean(degrees)
 
-    def build_graph(self,plot_graph=False):
+    def build_graph(self,session_file,plot_graph=False):
 
-        addr = self.session_file
+        addr = session_file
         query_click_G = nx.Graph()
         session_folders = os.listdir(addr)
         print 'session count: ', len(session_folders)
@@ -135,6 +135,7 @@ if __name__ == '__main__':
     args = load_arguments()
     config_state = eval(args.prototype)()
     builder = GraphBuilder(config_state)
+    builder.build_graph('./session_files/')
 
 
 
