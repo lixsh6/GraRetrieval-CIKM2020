@@ -9,11 +9,15 @@ A pytorch implement for CIKM 2020 paper ''[Learning Better Representations for N
 ## Dataset
 We run experiment on the publicly available dataset [Tiangong-ST](http://www.thuir.cn/tiangong-st/), which is a Chinese search log from [Sogou.com](sogou.com). 
 
-*	Preprocessed data should be placed in `./sessionST/dataset/`, following the settings in `config.py`. 
+* Preprocessed data should be placed in `./sessionST/dataset/`, following the settings in `config.py`. 
+
 * Sampled files are given in `valid/test` folders. Each line consists of `qid	docid	query	title	TACM	PSCM	THCM	UBM	DBN	POM	HUMAN(Only available in test set)`, separated by `TAB`. In particular, `TACM	PSCM	THCM	UBM	DBN	POM` are the click labels given in the dataset.
+
 * Building the graph data from session data requires `networkx` and `cPickle`. The graph data is stored as `pkl` file. Demo processing code is shown in [build_graph.py](./sessionST/build_graph.py).
-* Run `./EmbRanker/data/convert2textdict.py` to create `vocab_dict_file` and embedding dict `emb` file. Embedding is downloaded from [here](http://download.wikipedia.com/zhwiki) .
-* 
+
+* (**Update**) Run `./EmbRanker/data/convert2textdict.py` to create `vocab_dict_file` and embedding dict `emb` file. Embedding is downloaded from [here](http://download.wikipedia.com/zhwiki) .
+
+  
 
 Besides, constructing the training-specific graph data in both models are different:
 
